@@ -1,11 +1,9 @@
 using ClashManager.Domain.Models;
 using ClashManager.Domain.Services.ClashHttpService;
-using ClashTool.Services.Abstractions;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ClashTool.Services
+namespace ClashManager.Domain.Services.ClashApiGateway
 {
     public class ClashApiGateway : IClashApiGateway
     {

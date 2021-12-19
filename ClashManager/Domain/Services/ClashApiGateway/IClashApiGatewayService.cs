@@ -1,8 +1,7 @@
 using ClashManager.Domain.Models;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace ClashTool.Services.Abstractions
+namespace ClashManager.Domain.Services.ClashApiGateway
 {
     public interface IClashApiGateway
     {
