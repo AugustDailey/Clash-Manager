@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace ClashManager.Domain.Services.ClashApiGateway
 {
-    public interface IClashApiGateway
+    public interface IClashApiGatewayService
     {
         // Player
         Task<Player> GetPlayerAsync(string playerTag);

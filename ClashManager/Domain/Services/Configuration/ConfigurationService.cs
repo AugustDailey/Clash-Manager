@@ -1,7 +1,7 @@
 using ClashManager.Domain.Services.Configuration;
 using Microsoft.Extensions.Configuration;
 
-namespace ClashTool.Services
+namespace ClashManager.Domain.Services.Configuration
 {
     public class ConfigurationService : IConfigurationService
     {

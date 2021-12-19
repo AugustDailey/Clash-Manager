@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace ClashManager.Domain.Services.ClashApiGateway
 {
-    public class ClashApiGateway : IClashApiGateway
+    public class ClashApiGatewayService : IClashApiGatewayService
     {
         private IClashHttpService ClashHttpService { get; set; }
 
-        public ClashApiGateway(IClashHttpService clashHttpService)
+        public ClashApiGatewayService(IClashHttpService clashHttpService)
         {
             ClashHttpService = clashHttpService;
         }
