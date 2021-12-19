@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace ClashManager.Domain.Services.ClashHttpService
+namespace ClashManager.Domain.Services.ClashHttp
 {
     public interface IClashHttpService
     {

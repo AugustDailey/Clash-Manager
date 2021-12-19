@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using ClashManager.Domain.Services.Configuration;
 
-namespace ClashManager.Domain.Services.ClashHttpService
+namespace ClashManager.Domain.Services.ClashHttp
 {
     public class ClashHttpService : IClashHttpService
     {
@@ -11,8 +12,10 @@ namespace ClashManager.Domain.Services.ClashHttpService
 
         private string Path { get; set; }
 
-        public ClashHttpService()
+        public ClashHttpService(IConfigurationService configurationService)
         {
+            _apiToken = configurationService.GetApiToken();
+            _baseUrl = configurationService.GetClashApiBaseUrl();
         }
 
         public IClashHttpService Players()

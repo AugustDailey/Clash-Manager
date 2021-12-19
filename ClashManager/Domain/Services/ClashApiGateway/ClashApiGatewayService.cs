@@ -1,5 +1,5 @@
 using ClashManager.Domain.Models;
-using ClashManager.Domain.Services.ClashHttpService;
+using ClashManager.Domain.Services.ClashHttp;
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
