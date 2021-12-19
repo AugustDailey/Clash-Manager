@@ -1,5 +1,5 @@
 #  Welcome to Clash Manager
-ASP .NET Application implemented in C# to help you manage your Clash of Clans accounts and clans
+ASP .NET Core Web Application to help you manage your Clash of Clans accounts, clans, and clan activities.
 <p align="left">
   <img src="https://github.com/AugustDailey/Clash-Manager/workflows/Clash%20Manager%20Pipeline/badge.svg" />
 </p>
