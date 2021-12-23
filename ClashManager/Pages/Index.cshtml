@@ -8,10 +8,60 @@
     <h1 class="display-4">Welcome to Clash Manager!</h1>
     <p>Clash Manager is a web application for managing clash of clans accounts and clans to help optimize your gaming experience. Get started by adding an account or clan below.</p>
 
-    <button class="btn btn-default">
+    <button class="btn btn-default" data-toggle="modal" data-target="#addaccountmodal">
         <img src="/assets/addaccount_shadow.png" />
     </button>
-    <button class="btn btn-default">
+    <button class="btn btn-default" data-toggle="modal" data-target="#addclanmodal">
         <img src="/assets/addclan_shadow.png" />
     </button>
+
+    <div class="modal fade" id="addaccountmodal" tabindex="-1" role="dialog" aria-labelledby="addacountmodallabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add an account...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="playertag" class="col-form-label">Player Tag:</label>
+                            <input type="text" class="form-control" id="playertag">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Finish</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addclanmodal" tabindex="-1" role="dialog" aria-labelledby="addclanmodallabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add a clan...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="clantag" class="col-form-label">Clan Tag:</label>
+                            <input type="text" class="form-control" id="clantag">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Finish</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
