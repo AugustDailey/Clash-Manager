@@ -11,18 +11,39 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">ClashManager</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/assets/clashmanager_shadow.png" />
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" style="font-size:24px" id="accountDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Accounts
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Add an account</a>
+                                <a class="dropdown-item" href="#">Manage accounts</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Remove an account</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" style="font-size:24px" id="clanDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Clans
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Add a clan</a>
+                                <a class="dropdown-item" href="#">Manage clans</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Remove a clan</a>
+                            </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" href="#" style="font-size:24px">Settings</a>
                         </li>
                     </ul>
                 </div>
