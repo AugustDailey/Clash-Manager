@@ -1,6 +1,6 @@
-﻿using ClashManager.Domain.DbContext.Models;
+﻿using ClashManager.Domain.Db.Models;
 
-namespace ClashManager.Domain.DbContext.Abstractions
+namespace ClashManager.Domain.Db.Abstractions
 {
     public interface IUserDb
     {

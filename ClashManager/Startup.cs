@@ -6,7 +6,8 @@ using Microsoft.Extensions.Hosting;
 using ClashManager.Domain.Services.Configuration;
 using ClashManager.Domain.Services.ClashHttp;
 using ClashManager.Domain.Services.ClashApiGateway;
-
+using ClashManager.Domain.Db;
+using ClashManager.Domain.Db.Abstractions;
 
 namespace ClashManager
 {
@@ -27,6 +28,8 @@ namespace ClashManager
             services.AddSingleton<IConfigurationService, ConfigurationService>();
             services.AddSingleton<IClashApiGatewayService, ClashApiGatewayService>();
             services.AddSingleton<IClashHttpService, ClashHttpService>();
+
+            services.AddSingleton<IUserDb, UserDb>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

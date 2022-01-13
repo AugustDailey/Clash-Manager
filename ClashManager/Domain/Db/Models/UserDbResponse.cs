@@ -1,4 +1,4 @@
-﻿namespace ClashManager.Domain.DbContext.Models
+﻿namespace ClashManager.Domain.Db.Models
 {
     public class UserDbResponse
     {
