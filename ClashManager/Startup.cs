@@ -8,6 +8,9 @@ using ClashManager.Domain.Services.ClashHttp;
 using ClashManager.Domain.Services.ClashApiGateway;
 using ClashManager.Domain.Db;
 using ClashManager.Domain.Db.Abstractions;
+using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.IdentityModel.Logging;
 
 namespace ClashManager
 {
@@ -23,6 +26,8 @@ namespace ClashManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(AzureADB2CDefaults.AuthenticationScheme)
+                .AddAzureADB2C(options => Configuration.Bind("AzureAdB2C", options));
             services.AddRazorPages();
 
             services.AddSingleton<IConfigurationService, ConfigurationService>();
@@ -51,10 +56,14 @@ namespace ClashManager
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }
