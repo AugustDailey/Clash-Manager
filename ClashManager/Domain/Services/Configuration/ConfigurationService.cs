@@ -21,5 +21,10 @@ namespace ClashManager.Domain.Services.Configuration
         {
             return AppSettings["ClashApiBaseUrl"];
         }
+
+        public string GetUserDbConnectionString()
+        {
+            return AppSettings["UserDbConnectionString"];
+        }
     } 
 }

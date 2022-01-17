@@ -111,3 +111,4 @@ AutoTest.Net/
 .sass-cache/
 
 **/wwwroot/lib
+ClashManager/appsettings.Local.json
