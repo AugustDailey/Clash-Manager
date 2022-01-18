@@ -4,6 +4,6 @@ namespace ClashManager.Domain.Services.Configuration
     {
         string GetApiToken();
         string GetClashApiBaseUrl();
-        string GetUserDbConnectionString();
+        string GetAccountDbConnectionString();
     }
 }
