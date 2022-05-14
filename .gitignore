@@ -112,3 +112,4 @@ AutoTest.Net/
 
 **/wwwroot/lib
 ClashManager/appsettings.Local.json
+ClashManager.csproj.user

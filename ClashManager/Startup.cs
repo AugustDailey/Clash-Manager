@@ -8,9 +8,14 @@ using ClashManager.Domain.Services.ClashHttp;
 using ClashManager.Domain.Services.ClashApiGateway;
 using ClashManager.Domain.Db;
 using ClashManager.Domain.Db.Abstractions;
-using Microsoft.AspNetCore.Authentication.AzureADB2C.UI;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.IdentityModel.Logging;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
 
 namespace ClashManager
 {
@@ -26,15 +31,27 @@ namespace ClashManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(AzureADB2CDefaults.AuthenticationScheme)
-                .AddAzureADB2C(options => Configuration.Bind("AzureAdB2C", options));
+            services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
+            .AddMicrosoftIdentityWebApp(Configuration.GetSection("AzureAdB2C"));
+
+            services.AddAuthorization(options =>
+            {
+                // By default, all incoming requests will be authorized according to 
+                // the default policy
+                options.FallbackPolicy = options.DefaultPolicy;
+            });
+            services.AddRazorPages(options => {
+                options.Conventions.AllowAnonymousToPage("/Index");
+            })
+                .AddMvcOptions(options => { })
+                .AddMicrosoftIdentityUI();
             services.AddRazorPages();
 
             services.AddSingleton<IConfigurationService, ConfigurationService>();
             services.AddSingleton<IClashApiGatewayService, ClashApiGatewayService>();
             services.AddSingleton<IClashHttpService, ClashHttpService>();
 
-            services.AddSingleton<IUserDb, UserDb>();
+            services.AddSingleton<IAccountDb, AccountDb>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,7 +70,7 @@ namespace ClashManager
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseCookiePolicy();
             app.UseRouting();
 
             app.UseAuthentication();
@@ -63,7 +80,7 @@ namespace ClashManager
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

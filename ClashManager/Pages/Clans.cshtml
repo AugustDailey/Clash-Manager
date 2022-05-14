@@ -1,0 +1,19 @@
+﻿@page
+@using System.Security.Principal
+
+@model ClashManager.Pages.ClansModel
+@{
+    ViewData["Title"] = "Manage Clans";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Clans</h1>
+    @foreach (var clan in @Model.Clans)
+    {
+        <button class="btn btn-default float-left">
+        <img src="@Url.Content(clan.BadgeUrl)" alt="Image">
+        <p class="font-weight-bold">@clan.Name</p>
+    </button>
+    }
+    
+</div>
