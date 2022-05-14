@@ -110,6 +110,5 @@ AutoTest.Net/
 # Web workbench (sass)
 .sass-cache/
 
-**/wwwroot/lib
 ClashManager/appsettings.Local.json
 ClashManager.csproj.user
