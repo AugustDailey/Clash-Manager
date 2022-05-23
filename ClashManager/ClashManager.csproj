@@ -13,4 +13,16 @@
 	<PackageReference Include="Microsoft.AspNetCore.Authentication.AzureADB2C.UI" Version="3.1.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\assets\binoculars.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\assets\newspaper.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\assets\people.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
