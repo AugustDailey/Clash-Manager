@@ -374,6 +374,14 @@ h2, .h2 {
   font-size: 2rem;
 }
 
+feature-header, .feature-header {
+    font-size: 1.25rem;
+}
+
+featurebody, .feature-body {
+    font-size: 0.75rem;
+}
+
 h3, .h3 {
   font-size: 1.75rem;
 }
@@ -6571,6 +6579,10 @@ button.bg-danger:focus {
   background-color: #f8f9fa !important;
 }
 
+.bg-notlight {
+    background-color: #86a9f0 !important;
+}
+
 a.bg-light:hover, a.bg-light:focus,
 button.bg-light:hover,
 button.bg-light:focus {
@@ -9906,6 +9918,10 @@ a.text-light:hover, a.text-light:focus {
 
 .text-dark {
   color: #343a40 !important;
+}
+
+.navbar-text-custom {
+    color: #fff !important;
 }
 
 a.text-dark:hover, a.text-dark:focus {
