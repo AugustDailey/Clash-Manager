@@ -1,65 +1,123 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    {
+        ViewData["Title"] = "Home page";
+    }
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="text-center">
+                <h1 class="display-4">Welcome to Clash Manager!</h1>
+                <p>Clash Manager is a web application for managing clash of clans accounts and clans to help optimize your gaming experience. Get started by adding an account or clan below.</p>
+
+                <button class="btn btn-default" data-toggle="modal" data-target="#addaccountmodal">
+                    <img src="/assets/addaccount_shadow.png" />
+                </button>
+                <button class="btn btn-default" data-toggle="modal" data-target="#addclanmodal">
+                    <img src="/assets/addclan_shadow.png" />
+                </button>
+
+                <div class="modal fade" id="addaccountmodal" tabindex="-1" role="dialog" aria-labelledby="addaccountmodallabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add an account...</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label asp-for="PlayerTag" class="col-form-label">Player Tag:</label>
+                                        <input type="text" class="form-control" asp-for="PlayerTag">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Finish</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="addclanmodal" tabindex="-1" role="dialog" aria-labelledby="addclanmodallabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add a clan...</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post">
+                                    <div class="form-group">
+                                        <label asp-for="ClanTag" class="col-form-label">Clan Tag:</label>
+                                        <input type="text" class="form-control" asp-for="ClanTag">
+                                    </div>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Finish</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    }
+    else
+    {
+        <link href="~/css/features.css" rel="stylesheet"/>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <symbol id="people" viewBox="0 0 16 16">
+              <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
+            </symbol>
+            <symbol id="newspaper" viewBox="0 0 16 16">
+              <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
+              <path d="M2 3h10v2H2V3zm0 3h4v3H2V6zm0 4h4v1H2v-1zm0 2h4v1H2v-1zm5-6h2v1H7V6zm3 0h2v1h-2V6zM7 8h2v1H7V8zm3 0h2v1h-2V8zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1zm-3 2h2v1H7v-1zm3 0h2v1h-2v-1z"/>
+            </symbol>
+            <symbol id="binoculars" viewBox="0 0 16 16">
+              <path d="M3 2.5A1.5 1.5 0 0 1 4.5 1h1A1.5 1.5 0 0 1 7 2.5V5h2V2.5A1.5 1.5 0 0 1 10.5 1h1A1.5 1.5 0 0 1 13 2.5v2.382a.5.5 0 0 0 .276.447l.895.447A1.5 1.5 0 0 1 15 7.118V14.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 14.5v-3a.5.5 0 0 1 .146-.354l.854-.853V9.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v.793l.854.853A.5.5 0 0 1 7 11.5v3A1.5 1.5 0 0 1 5.5 16h-3A1.5 1.5 0 0 1 1 14.5V7.118a1.5 1.5 0 0 1 .83-1.342l.894-.447A.5.5 0 0 0 3 4.882V2.5zM4.5 2a.5.5 0 0 0-.5.5V3h2v-.5a.5.5 0 0 0-.5-.5h-1zM6 4H4v.882a1.5 1.5 0 0 1-.83 1.342l-.894.447A.5.5 0 0 0 2 7.118V13h4v-1.293l-.854-.853A.5.5 0 0 1 5 10.5v-1A1.5 1.5 0 0 1 6.5 8h3A1.5 1.5 0 0 1 11 9.5v1a.5.5 0 0 1-.146.354l-.854.853V13h4V7.118a.5.5 0 0 0-.276-.447l-.895-.447A1.5 1.5 0 0 1 12 4.882V4h-2v1.5a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V4zm4-1h2v-.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5V3zm4 11h-4v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V14zm-8 0H2v.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V14z"/>
+            </symbol>
+        </svg>
+        <div class="container px-4 py-5" id="icon-grid">
+                <div class="text-center" style="max-width: 600px;margin-left: auto;margin-right: auto;font-size: 20px;">
+                    <img src="/assets/clashmanager_shadow.png" style="height: auto;width: 300px;/* max-height: 1000px; */margin-bottom: 2rem;">
+                    <p>Clash Manager is a web application for optimizing your Clash of Clans gaming experience. See our features below.</p>
+                </div>
+                <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+                  <div class="col d-flex align-items-start">
+                    <div class="icon-square bg-notlight text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                      <svg class="bi" width="1.5em" height="1.5em"><use xlink:href="#people"/></svg>
+                    </div>
+                    <div>
+                      <h2 class="feature-header">Manage Multiple Accounts</h2>
+                      <p class="feature-body">Track builders, resource production, lab research, and more on multiple accounts.</p>
+                    </div>
+                  </div>
+                  <div class="col d-flex align-items-start">
+                    <div class="icon-square bg-notlight text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                      <svg class="bi" width="1.5em" height="1.5em"><use xlink:href="#binoculars"/></svg>
+                    </div>
+                    <div>
+                      <h2 class="feature-header">Inspect Clan Performance</h2>
+                      <p class="feature-body">View valuable performance trends across multiple clan wars, clan games, and clan capital raids.</p>
+                    </div>
+                  </div>
+                  <div class="col d-flex align-items-start">
+                    <div class="icon-square bg-notlight text-dark d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
+                      <svg class="bi" width="1.5em" height="1.5em"><use xlink:href="#newspaper"/></svg>
+                    </div>
+                    <div>
+                      <h2 class="feature-header">Generate War Reports</h2>
+                      <p class="feature-body">Use clan war reports to view past wars and make decisions on future wars.</p>
+                    </div>
+                  </div>
+                </div>
+
+        </div>
+
+    }
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome to Clash Manager!</h1>
-    <p>Clash Manager is a web application for managing clash of clans accounts and clans to help optimize your gaming experience. Get started by adding an account or clan below.</p>
-
-    <button class="btn btn-default" data-toggle="modal" data-target="#addaccountmodal">
-        <img src="/assets/addaccount_shadow.png" />
-    </button>
-    <button class="btn btn-default" data-toggle="modal" data-target="#addclanmodal">
-        <img src="/assets/addclan_shadow.png" />
-    </button>
-
-    <div class="modal fade" id="addaccountmodal" tabindex="-1" role="dialog" aria-labelledby="addaccountmodallabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add an account...</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label asp-for="PlayerTag" class="col-form-label">Player Tag:</label>
-                            <input type="text" class="form-control" asp-for="PlayerTag">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Finish</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="addclanmodal" tabindex="-1" role="dialog" aria-labelledby="addclanmodallabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add a clan...</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="post">
-                        <div class="form-group">
-                            <label asp-for="ClanTag" class="col-form-label">Clan Tag:</label>
-                            <input type="text" class="form-control" asp-for="ClanTag">
-                        </div>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Finish</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
